@@ -1,0 +1,10 @@
+(defun guess-the-number ()
+  (let ((secret-number (random 100)))
+    (format t "I'm thinking of a number between 1 and 100. Can you guess what it is?~%")
+    (loop
+     (let ((guess (read-from-minibuffer "Enter your guess: ")))
+       (if (= guess secret-number)
+           (return (format t "You guessed it! The number was ~a.~%" secret-number))
+         (if (> guess secret-number)
+             (format t "Too high. Try again.~%")
+           (format t "Too low. Try again.~%")))))))
